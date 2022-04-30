@@ -15,8 +15,8 @@ def is_mac():
 
 
 def is_linux():
-    raise NotImplementedError()
-    # return 'linux' in platform.platform().lower()
+    #raise NotImplementedError()
+    return 'linux' in platform.platform().lower()
 
 
 def read_profile_path(fn):
@@ -57,7 +57,9 @@ def prefs_root():
         prof_relroot = read_profile_path(os.path.join(zotero_root, 'profiles.ini'))
         return os.path.join(zotero_root, prof_relroot)
     elif is_linux():
-        zotero_root = os.path.join(user_root, '.zotero/zotero')
+        #zotero_root = os.path.join(user_root, '.zotero/zotero')
+        prof_relroot = read_profile_path(os.path.join(zotero_root, 'profiles.ini'))
+        return os.path.join(zotero_root, prof_relroot)
     elif is_mac():
         zotero_root = os.path.join(user_root, 'Library/Application Support/Zotero')
     else:
